@@ -10,3 +10,11 @@ CipherFinder tries to identify the steps that occurred between plaintext and cip
 	cd cipherfinder
 	composer install --no-dev
 	php cipherfinder.php -?
+
+### Example
+
+    $ php cipherfinder.php -c "Z3ywI2xbRQSzkFm5RZ==" -p "Hello, world!"
+    Trying depth 1/7.
+    Trying depth 2/7.
+    Trying depth 3/7.
+    Found a working cipher combo: ciphertext -> rot17 -> base64 -> rot5 -> plaintext
