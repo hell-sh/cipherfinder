@@ -1,0 +1,17 @@
+{
+	"name": "hellsh/cipherfinder",
+	"description": "CipherFinder tries to identify the steps that occurred between plaintext and ciphertext.",
+	"homepage": "https://github.com/hell-sh/cipherfinder",
+	"type": "library",
+	"license": "MIT",
+	"autoload": {
+		"classmap": ["src/"]
+	},
+	"require": {
+		"php": "^7.0",
+		"ext-json": "*",
+		"ext-openssl": "*",
+		"cheprasov/php-cli-args": "^3.0",
+		"hellsh/uuid": "dev-master"
+	}
+}
