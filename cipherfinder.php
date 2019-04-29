@@ -10,16 +10,16 @@ $args = new CliArgs\CliArgs([
 	],
 	"ciphertext" => "c",
 	"plaintext" => "p",
+	"key" => [
+		"alias" => "k",
+		"help" => "An encryption key which may have been used."
+	],
 	"max-depth" => [
 		"alias" => "l",
 		"default" => 7,
 		"filter" => "int",
 		"help" => "The maximum size of the cipher combo. Defaults to 7."
 	],
-	"key" => [
-		"alias" => "k",
-		"help" => "An encryption key which may have been used."
-	]
 ]);
 
 if($args->isFlagExist("help") || !$args->isFlagExist("ciphertext") || !$args->isFlagExist("plaintext"))
