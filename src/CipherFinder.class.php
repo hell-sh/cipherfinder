@@ -36,10 +36,16 @@ final class CipherFinder
 		{
 			foreach($this->keys as $key)
 			{
-				$this->key_ciphers["{$method}('{$key}')"] = new OpensslCipher($key, $method, true);
-				$this->key_ciphers["{$method}-pkcs7('{$key}')"] = new OpensslCipher($key, $method, false);
+				$readable = self::key2readable($key);
+				$this->key_ciphers["{$method}({$readable})"] = new OpensslCipher($key, $method, true);
+				$this->key_ciphers["{$method}-pkcs7({$readable})"] = new OpensslCipher($key, $method, false);
 			}
 		}
+	}
+
+	static function key2readable($key)
+	{
+		return ctype_print($key) ? "'{$key}'" : '0x'.bin2hex($key);
 	}
 
 	/**
