@@ -2,7 +2,7 @@
 
 CipherFinder tries to identify the steps that occurred between plaintext and ciphertext.
 
-**Note:** Currently, CipherFinder is **far** from complete, merely supporting Base64, ROT 1-25, and all openssl ciphers (which require a key to be provided). As such, any issues and pull requests would be highly appreciated.
+**CipherFinder is still in its infancy.** Any issues and pull requests are highly appreciated.
 
 ## Using the CLI tool
 
