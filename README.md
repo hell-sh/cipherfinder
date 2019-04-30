@@ -1,4 +1,4 @@
-# CipherFinder
+# CipherFinder [![Build Status](https://travis-ci.org/hell-sh/cipherfinder.svg?branch=master)](https://travis-ci.org/hell-sh/cipherfinder)
 
 CipherFinder tries to identify the steps that occurred between plaintext and ciphertext.
 
