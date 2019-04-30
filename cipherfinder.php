@@ -37,13 +37,28 @@ if($args->isFlagExist("key"))
 	}
 }
 $cf = new CipherFinder($args->getArg("ciphertext"), $args->getArg("plaintext"), $keys);
+$max_depth = $args->getArg("max-depth");
+if($max_depth < 1)
+{
+	$max_depth = 1;
+}
 if(count($keys) < 2)
 {
-	echo "Trying ".count($cf->allCiphers())." ciphers until depth ".$args->getArg("max-depth").".\r\n";
+	echo "Trying ".count($cf->allCiphers())." ciphers";
+	if($max_depth > 1)
+	{
+		echo " until depth ".$max_depth;
+	}
+	echo ".\r\n";
 }
 else
 {
-	echo "Trying ".count((new CipherFinder("", "", [""]))->allCiphers())." ciphers until depth ".$args->getArg("max-depth").".\r\n";
+	echo "Trying ".count((new CipherFinder("", "", [""]))->allCiphers())." ciphers";
+	if($max_depth > 2)
+	{
+		echo " until depth ".$max_depth;
+	}
+	echo ".\r\n";
 }
 $cf->onNewDepth(function($depth, $max_depth)
 {
@@ -52,7 +67,7 @@ $cf->onNewDepth(function($depth, $max_depth)
 		echo "Trying depth {$depth}.\r\n";
 	}
 });
-$ret = $cf->findCiphers($args->getArg("max-depth"));
+$ret = $cf->findCiphers($max_depth);
 if($ret)
 {
 	echo "Found a working cipher combo: ciphertext -> ".join(" -> ", $ret)." -> plaintext\r\n";
