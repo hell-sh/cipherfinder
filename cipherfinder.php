@@ -1,5 +1,5 @@
 <?php
-/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpUnhandledExceptionInspection PhpUnusedParameterInspection */
 require "vendor/autoload.php";
 use cipherfinder\CipherFinder;
 $args = new CliArgs\CliArgs([
@@ -31,11 +31,26 @@ if($args->isFlagExist("key"))
 {
 	array_push($keys, $args->getArg("key"));
 	$keys += CipherFinder::inferKeys($keys);
+	if(count($keys) > 1)
+	{
+		echo "Inferred ".(count($keys) - 1)." additional keys.\r\n";
+	}
 }
 $cf = new CipherFinder($args->getArg("ciphertext"), $args->getArg("plaintext"), $keys);
+if(count($keys) < 2)
+{
+	echo "Trying ".count($cf->allCiphers())." ciphers until depth ".$args->getArg("max-depth").".\r\n";
+}
+else
+{
+	echo "Trying ".count((new CipherFinder("", "", [""]))->allCiphers())." ciphers until depth ".$args->getArg("max-depth").".\r\n";
+}
 $cf->onNewDepth(function($depth, $max_depth)
 {
-	echo "Trying depth {$depth}/{$max_depth}.\r\n";
+	if($depth > 1)
+	{
+		echo "Trying depth {$depth}.\r\n";
+	}
 });
 $ret = $cf->findCiphers($args->getArg("max-depth"));
 if($ret)

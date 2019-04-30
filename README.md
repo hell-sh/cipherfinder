@@ -14,7 +14,7 @@ CipherFinder tries to identify the steps that occurred between plaintext and cip
 ### Example
 
     $ php cipherfinder.php -c "Z3ywI2xbRQSzkFm5RZ==" -p "Hello, world!"
-    Trying depth 1/7.
+    Trying 27 ciphers until depth 7.
     Trying depth 2/7.
     Trying depth 3/7.
     Found a working cipher combo: ciphertext -> rot17 -> base64 -> rot5 -> plaintext
