@@ -24,7 +24,8 @@ final class CipherFinder
 		$this->keys = $keys;
 		$this->new_depth_handler = function($depth, $max_depth){};
 		$this->ciphers = [
-			'base64' => new Base64Cipher()
+			'base64' => new Base64Cipher(),
+			'hex' => new HexCipher()
 		];
 		$this->rot_ciphers = [];
 		for($i = 1; $i <= 25; $i++)
