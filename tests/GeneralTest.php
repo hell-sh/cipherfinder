@@ -9,4 +9,9 @@ final class GeneralTest extends TestCase
 		$this->assertEquals("0x0f", CipherFinder::key2readable("\x0F"));
 		$this->assertEquals("'hi'", CipherFinder::key2readable("hi"));
 	}
+
+	function testPadKey()
+	{
+		$this->assertEquals("TestTestTestT", CipherFinder::padKey("Test", 13));
+	}
 }

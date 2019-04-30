@@ -33,11 +33,14 @@ final class CipherFinder
 			$this->rot_ciphers["rot{$i}"] = new RotCipher($i);
 		}
 		$this->key_ciphers = [];
-		foreach(openssl_get_cipher_methods(false) as $method)
+		foreach($this->keys as $key)
 		{
-			foreach($this->keys as $key)
+			$padded = self::padKey($key, strlen($this->plaintext));
+			$readable = self::key2readable($key);
+			$padded_readable = self::key2readable($padded);
+			$this->key_ciphers["xor({$padded_readable})"] = new XorCipher($padded);
+			foreach(openssl_get_cipher_methods(false) as $method)
 			{
-				$readable = self::key2readable($key);
 				$this->key_ciphers["{$method}({$readable})"] = new OpensslCipher($key, $method, true);
 				$this->key_ciphers["{$method}-pkcs7({$readable})"] = new OpensslCipher($key, $method, false);
 			}
@@ -47,6 +50,15 @@ final class CipherFinder
 	static function key2readable($key)
 	{
 		return ctype_print($key) ? "'{$key}'" : '0x'.bin2hex($key);
+	}
+
+	static function padKey($key, $len)
+	{
+		while(strlen($key) < $len)
+		{
+			$key .= $key;
+		}
+		return substr($key, 0, $len);
 	}
 
 	/**
