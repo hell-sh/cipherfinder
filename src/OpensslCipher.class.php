@@ -1,15 +1,14 @@
 <?php
 namespace cipherfinder;
-class OpensslCipher extends Cipher
+class OpensslCipher extends KeyCipher
 {
 	protected $method;
-	protected $key;
 	protected $flags;
 
-	function __construct($method, $key, bool $no_padding)
+	function __construct($key, $method, bool $no_padding)
 	{
+		parent::__construct($key);
 		$this->method = $method;
-		$this->key = $key;
 		$this->flags = OPENSSL_RAW_DATA;
 		if($no_padding)
 		{

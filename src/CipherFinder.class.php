@@ -36,8 +36,8 @@ final class CipherFinder
 		{
 			foreach($this->keys as $key)
 			{
-				$this->key_ciphers["{$method}('{$key}')"] = new OpensslCipher($method, $key, true);
-				$this->key_ciphers["{$method}-pkcs7('{$key}')"] = new OpensslCipher($method, $key, false);
+				$this->key_ciphers["{$method}('{$key}')"] = new OpensslCipher($key, $method, true);
+				$this->key_ciphers["{$method}-pkcs7('{$key}')"] = new OpensslCipher($key, $method, false);
 			}
 		}
 	}
