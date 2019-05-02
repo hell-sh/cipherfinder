@@ -33,7 +33,8 @@ if($args->isFlagExist("key"))
 	$keys += CipherFinder::inferKeys($keys);
 	if(count($keys) > 1)
 	{
-		echo "Inferred ".(count($keys) - 1)." additional keys.\r\n";
+		$add = (count($keys) - 1);
+		echo "Inferred ".$add." additional key".($add == 1 ? "" : "s").".\r\n";
 	}
 }
 $cf = new CipherFinder($args->getArg("ciphertext"), $args->getArg("plaintext"), $keys);
