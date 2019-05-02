@@ -1,12 +1,17 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
-use cipherfinder\{Base64Cipher, CipherFinder, HexCipher, XorCipher};
+use cipherfinder\{Base64Cipher, CipherFinder, HexCipher, TripleDesEcbCipher, XorCipher};
 use PHPUnit\Framework\TestCase;
 final class CipherTest extends TestCase
 {
 	function testBase64Cipher()
 	{
 		$this->assertEquals("Hello, world!", (new Base64Cipher())->decrypt("SGVsbG8sIHdvcmxkIQ=="));
+	}
+
+	function testTripleDesCipher()
+	{
+		$this->assertEquals("Hello, world!", (new TripleDesEcbCipher("Hi"))->decrypt(hex2bin("6560df51b8b406eb4474a95a1b9dafc8")));
 	}
 
 	function testHexCipher()

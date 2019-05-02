@@ -39,6 +39,12 @@ final class CipherFinder
 			$readable = self::key2readable($key);
 			$padded_readable = self::key2readable($padded);
 			$this->key_ciphers["xor({$padded_readable})"] = new XorCipher($padded);
+			$this->key_ciphers["tripledes-3cbc({$readable})"] = new TripleDes3CbcCipher($key);
+			$this->key_ciphers["tripledes-cbc({$readable})"] = new TripleDesCbcCipher($key);
+			$this->key_ciphers["tripledes-cfb({$readable})"] = new TripleDesCfbCipher($key);
+			$this->key_ciphers["tripledes-ctr({$readable})"] = new TripleDesCtrCipher($key);
+			$this->key_ciphers["tripledes-ecb({$readable})"] = new TripleDesEcbCipher($key);
+			$this->key_ciphers["tripledes-ofb({$readable})"] = new TripleDesOfbCipher($key);
 			foreach(openssl_get_cipher_methods(false) as $method)
 			{
 				$this->key_ciphers["{$method}({$readable})"] = new OpensslCipher($key, $method, true);

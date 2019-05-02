@@ -12,8 +12,9 @@
 		"ext-json": "*",
 		"ext-ctype": "*",
 		"ext-openssl": "*",
-		"cheprasov/php-cli-args": "^3.0",
-		"hell-sh/uuid": "dev-master"
+		"hell-sh/uuid": "dev-master",
+		"phpseclib/phpseclib": "^2.0",
+		"cheprasov/php-cli-args": "^3.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^6.0 | ^7.0 | ^8.0"
