@@ -2,5 +2,5 @@
 namespace cipherfinder;
 abstract class Cipher
 {
-	abstract function decode($ciphertext);
+	abstract function decrypt($ciphertext);
 }

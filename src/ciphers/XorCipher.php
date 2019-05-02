@@ -15,7 +15,7 @@ class XorCipher extends KeyCipher
 		parent::__construct($key);
 	}
 
-	function decode($ciphertext)
+	function decrypt($ciphertext)
 	{
 		if(strlen($ciphertext) != $this->key_length)
 		{

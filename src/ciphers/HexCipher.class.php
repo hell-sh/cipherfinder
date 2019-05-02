@@ -2,7 +2,7 @@
 namespace cipherfinder;
 class HexCipher extends Cipher
 {
-	function decode($ciphertext)
+	function decrypt($ciphertext)
 	{
 		return @hex2bin($ciphertext);
 	}

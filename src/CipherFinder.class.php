@@ -155,7 +155,7 @@ final class CipherFinder
 		$go_deeper = --$depth > 0;
 		foreach($this->getCiphers($prev_cipher) as $ciphername => $cipher)
 		{
-			$ciphertext_ = $cipher->decode($ciphertext);
+			$ciphertext_ = $cipher->decrypt($ciphertext);
 			if($ciphertext_ == $this->plaintext)
 			{
 				$cipherlist_ = $cipherlist;

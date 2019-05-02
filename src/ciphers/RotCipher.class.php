@@ -15,7 +15,7 @@ class RotCipher extends Cipher
 		}
 	}
 
-	function decode($ciphertext)
+	function decrypt($ciphertext)
 	{
 		return $this->n == 13 ? str_rot13($ciphertext) : strtr($ciphertext, self::letters, $this->rep);
 	}

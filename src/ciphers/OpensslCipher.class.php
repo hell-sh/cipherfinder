@@ -16,7 +16,7 @@ class OpensslCipher extends KeyCipher
 		}
 	}
 
-	function decode($ciphertext)
+	function decrypt($ciphertext)
 	{
 		return @openssl_decrypt($ciphertext, $this->method, $this->key, $this->flags);
 	}

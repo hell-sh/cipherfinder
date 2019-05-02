@@ -2,7 +2,7 @@
 namespace cipherfinder;
 class Base64Cipher extends Cipher
 {
-	function decode($ciphertext)
+	function decrypt($ciphertext)
 	{
 		return base64_decode($ciphertext);
 	}
