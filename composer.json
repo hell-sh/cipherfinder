@@ -1,5 +1,5 @@
 {
-	"name": "hellsh/cipherfinder",
+	"name": "hell-sh/cipherfinder",
 	"description": "CipherFinder tries to identify the steps that occurred between plaintext and ciphertext.",
 	"homepage": "https://github.com/hell-sh/cipherfinder",
 	"type": "library",
@@ -13,7 +13,7 @@
 		"ext-ctype": "*",
 		"ext-openssl": "*",
 		"cheprasov/php-cli-args": "^3.0",
-		"hellsh/uuid": "dev-master"
+		"hell-sh/uuid": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^6.0 | ^7.0 | ^8.0"
