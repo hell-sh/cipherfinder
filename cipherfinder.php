@@ -43,24 +43,12 @@ if($max_depth < 1)
 {
 	$max_depth = 1;
 }
-if(count($keys) < 2)
+echo "Trying ".count($cf->allCiphers())." ciphers";
+if($max_depth > 1)
 {
-	echo "Trying ".count($cf->allCiphers())." ciphers";
-	if($max_depth > 1)
-	{
-		echo " until depth ".$max_depth;
-	}
-	echo ".\r\n";
+	echo " until depth ".$max_depth;
 }
-else
-{
-	echo "Trying ".count((new CipherFinder("", "", [""]))->allCiphers())." ciphers";
-	if($max_depth > 2)
-	{
-		echo " until depth ".$max_depth;
-	}
-	echo ".\r\n";
-}
+echo ".\r\n";
 $cf->onNewDepth(function($depth, $max_depth)
 {
 	if($depth > 1)
