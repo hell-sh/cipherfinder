@@ -12,7 +12,7 @@
 		"ext-json": "*",
 		"ext-ctype": "*",
 		"ext-openssl": "*",
-		"hell-sh/uuid": "dev-master",
+		"hell-sh/uuid": "^1.0",
 		"phpseclib/phpseclib": "^2.0",
 		"cheprasov/php-cli-args": "^3.0"
 	},

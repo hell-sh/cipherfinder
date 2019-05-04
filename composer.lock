@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb68ad07eea1034f36dad6ff2260b71a",
+    "content-hash": "6340b5bbe11bd5aa96347de90dcae896",
     "packages": [
         {
             "name": "cheprasov/php-cli-args",
@@ -48,16 +48,16 @@
         },
         {
             "name": "hell-sh/uuid",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hell-sh/php-uuid.git",
-                "reference": "70aa624bf3386749657d6061eb316dd2873108a1"
+                "reference": "d7a7545b8b59278b37e7fb84781c296b638cc657"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hell-sh/php-uuid/zipball/70aa624bf3386749657d6061eb316dd2873108a1",
-                "reference": "70aa624bf3386749657d6061eb316dd2873108a1",
+                "url": "https://api.github.com/repos/hell-sh/php-uuid/zipball/d7a7545b8b59278b37e7fb84781c296b638cc657",
+                "reference": "d7a7545b8b59278b37e7fb84781c296b638cc657",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +82,7 @@
             "keywords": [
                 "uuid"
             ],
-            "time": "2019-05-02T15:40:24+00:00"
+            "time": "2019-05-04T20:36:38+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -1654,9 +1654,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "hell-sh/uuid": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
