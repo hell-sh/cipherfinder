@@ -1,17 +1,16 @@
 <?php
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__."/../vendor/autoload.php";
 use cipherfinder\CipherFinder;
-use PHPUnit\Framework\TestCase;
-final class GeneralTest extends TestCase
+class GeneralTest
 {
 	function testKey2Readable()
 	{
-		$this->assertEquals("0x0f", CipherFinder::key2readable("\x0F"));
-		$this->assertEquals("'hi'", CipherFinder::key2readable("hi"));
+		Nose::assertEquals(CipherFinder::key2readable("\x0F"), "0x0f");
+		Nose::assertEquals(CipherFinder::key2readable("hi"), "'hi'");
 	}
 
 	function testPadKey()
 	{
-		$this->assertEquals("TestTestTestT", CipherFinder::padKey("Test", 13));
+		Nose::assertEquals(CipherFinder::padKey("Test", 13), "TestTestTestT");
 	}
 }

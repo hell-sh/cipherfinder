@@ -17,6 +17,6 @@
 		"cheprasov/php-cli-args": "^3.0"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^6.0 | ^7.0 | ^8.0"
+		"hell-sh/nose": "^1.0"
 	}
 }
