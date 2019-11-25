@@ -1,5 +1,13 @@
-<?php
-/** @noinspection PhpUnhandledExceptionInspection PhpUnusedParameterInspection */
+<?php /** @noinspection PhpUnhandledExceptionInspection PhpUnusedParameterInspection */
+if(!is_file(__DIR__."/vendor/autoload.php"))
+{
+	echo "vendor/autoload.php was not found, attempting to generate it...\n";
+	passthru("composer install -o -d \"".__DIR__."\" --no-dev");
+	if(!is_file(__DIR__."/vendor/autoload.php"))
+	{
+		die("Welp, that didn't work. Try again as root/administrator.\n");
+	}
+}
 require "vendor/autoload.php";
 use cipherfinder\CipherFinder;
 $args = new CliArgs\CliArgs([
